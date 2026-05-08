@@ -80,14 +80,15 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f5f1eb] text-[#0e2840]">
+    <main className="relative min-h-screen overflow-hidden bg-[#030507] text-white">
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:bg-[position:center_center]"
         style={{ backgroundImage: "url('/fondo.png')" }}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.74)_32%,rgba(255,255,255,0.2)_58%,rgba(255,255,255,0.02)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.88)_0%,rgba(255,255,255,0.66)_24%,rgba(0,0,0,0.04)_48%,rgba(0,0,0,0.18)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_24%,rgba(255,255,255,0.46),transparent_28%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.48)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/18 to-transparent" />
 
       <section className="relative z-10 flex min-h-screen flex-col px-5 py-6 sm:px-8 lg:px-12">
         <header className="flex w-full max-w-[620px] items-center gap-4 sm:gap-6">
@@ -99,7 +100,7 @@ export default function LoginPage() {
             className="h-auto w-40 object-contain sm:w-48"
             priority
           />
-          <div className="hidden h-16 w-px bg-[#0e2840]/30 sm:block" />
+          <div className="hidden h-16 w-px bg-[#0e2840]/25 sm:block" />
           <p className="max-w-48 text-base font-medium leading-snug text-[#0e2840] sm:text-lg">
             Tu ruta hacia{" "}
             <span className="font-bold text-[#f47c00]">
@@ -112,7 +113,7 @@ export default function LoginPage() {
         <div className="flex flex-1 items-center py-8 lg:py-10">
           <form
             onSubmit={onSubmit}
-            className="w-full max-w-[470px] rounded-[18px] border border-white/75 bg-white/88 px-6 py-7 shadow-[0_24px_70px_rgba(14,40,64,0.18)] backdrop-blur-md sm:px-10 sm:py-10"
+            className="w-full max-w-[470px] rounded-[18px] border border-white/65 bg-white/93 px-6 py-7 shadow-[0_28px_80px_rgba(0,0,0,0.52)] backdrop-blur-md sm:px-10 sm:py-10"
           >
             <div>
               <h1 className="text-3xl font-black tracking-tight text-[#071c36] sm:text-4xl">
@@ -131,7 +132,7 @@ export default function LoginPage() {
                 >
                   RUT
                 </label>
-                <div className="flex h-14 items-center gap-3 rounded-xl border border-[#d9e1ea] bg-white px-4 shadow-sm transition focus-within:border-[#f47c00] focus-within:ring-4 focus-within:ring-[#f47c00]/15">
+                <div className="flex h-14 items-center gap-3 rounded-xl border border-[#d4dce7] bg-white px-4 shadow-[0_8px_22px_rgba(7,28,54,0.08)] transition focus-within:border-[#f47c00] focus-within:ring-4 focus-within:ring-[#f47c00]/15">
                   <IdCard className="h-5 w-5 shrink-0 text-[#8796aa]" />
                   <input
                     id="rut"
@@ -151,7 +152,7 @@ export default function LoginPage() {
                 >
                   Contrasena
                 </label>
-                <div className="flex h-14 items-center gap-3 rounded-xl border border-[#d9e1ea] bg-white px-4 shadow-sm transition focus-within:border-[#f47c00] focus-within:ring-4 focus-within:ring-[#f47c00]/15">
+                <div className="flex h-14 items-center gap-3 rounded-xl border border-[#d4dce7] bg-white px-4 shadow-[0_8px_22px_rgba(7,28,54,0.08)] transition focus-within:border-[#f47c00] focus-within:ring-4 focus-within:ring-[#f47c00]/15">
                   <Lock className="h-5 w-5 shrink-0 text-[#8796aa]" />
                   <input
                     id="password"
@@ -201,25 +202,25 @@ export default function LoginPage() {
           </form>
         </div>
 
-        <div className="grid w-full gap-0 overflow-hidden rounded-[18px] border border-white/60 bg-white/86 shadow-[0_24px_70px_rgba(14,40,64,0.16)] backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid w-full gap-0 overflow-hidden rounded-[18px] border border-white/15 bg-black/62 shadow-[0_24px_70px_rgba(0,0,0,0.46)] backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
 
             return (
               <div
                 key={benefit.title}
-                className="flex min-h-28 items-center gap-4 px-6 py-5 text-[#0e2840] lg:min-h-24"
+                className="flex min-h-28 items-center gap-4 px-6 py-5 text-white lg:min-h-24"
               >
                 <Icon className="h-9 w-9 shrink-0 text-[#f47c00]" />
                 <div
                   className={
                     index > 0
-                      ? "border-t border-[#cfd8e3] pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0"
+                      ? "border-t border-white/15 pt-5 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0"
                       : ""
                   }
                 >
                   <h2 className="text-base font-black">{benefit.title}</h2>
-                  <p className="mt-1 text-sm leading-6 text-[#526174]">
+                  <p className="mt-1 text-sm leading-6 text-white/68">
                     {benefit.description}
                   </p>
                 </div>
