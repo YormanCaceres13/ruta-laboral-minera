@@ -198,7 +198,6 @@ export default function LoginPage() {
               <span>acceso con RUT</span>
               <div className="h-px flex-1 bg-[#dbe2ea]" />
             </div>
-
           </form>
         </div>
 

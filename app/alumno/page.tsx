@@ -6,8 +6,10 @@ import {
   ArrowRight,
   BadgeCheck,
   BriefcaseBusiness,
+  CheckCircle2,
   ExternalLink,
   FileText,
+  Lightbulb,
 } from "lucide-react";
 
 import { HomeHero } from "@/components/home/HomeHero";
@@ -29,6 +31,13 @@ const portalItems = [
     text: "El portal usa tu registro de alumno para habilitar la consulta.",
     icon: BadgeCheck,
   },
+];
+
+const cvTips = [
+  "Adapta tu CV al cargo: destaca primero las habilidades y experiencias que pide la oferta.",
+  "Ordena tu experiencia desde lo mas reciente e incluye funciones, equipos o procesos relevantes.",
+  "Usa palabras clave del aviso, como seguridad, mantenimiento, operacion, terreno o turnos.",
+  "Agrega certificaciones, licencias, cursos y disponibilidad para trabajar en faena si corresponde.",
 ];
 
 export default function AlumnoHomePage() {
@@ -70,6 +79,56 @@ export default function AlumnoHomePage() {
               Buscar empleos
               <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+
+          <div className="mb-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="rounded-[18px] border border-[#dce5ec] bg-[#f8fafb] p-5 sm:p-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-[#f47c00] ring-1 ring-[#dce5ec]">
+                  <Lightbulb className="h-5 w-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-black uppercase tracking-wide text-[#7a8999]">
+                    Tips para postular
+                  </p>
+                  <h3 className="mt-1 text-lg font-black tracking-tight text-[#0e2840]">
+                    Mejora tu CV antes de enviar una postulacion
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5d6b7a]">
+                    Revisa esta guia breve con recomendaciones practicas para
+                    ordenar tu experiencia, destacar habilidades y preparar tus
+                    antecedentes laborales.
+                  </p>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {cvTips.map((tip) => (
+                      <div
+                        key={tip}
+                        className="flex gap-3 rounded-xl border border-[#dce5ec] bg-white px-4 py-3"
+                      >
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#f47c00]" />
+                        <p className="text-sm leading-6 text-[#415263]">
+                          {tip}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-[18px] border border-[#dce5ec] bg-[#0e2840] shadow-[0_14px_42px_rgba(14,40,64,0.08)]">
+              <video
+                className="mx-auto aspect-[9/16] max-h-[380px] w-full bg-[#0e2840] object-contain"
+                controls
+                playsInline
+                preload="metadata"
+                aria-label="Video con tips para preparar el CV"
+              >
+                <source src="/video.mp4" type="video/mp4" />
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
           </div>
 
           <NewsFeed />
