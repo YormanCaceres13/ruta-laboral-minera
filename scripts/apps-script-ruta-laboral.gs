@@ -203,17 +203,24 @@ function syncTodo() {
  * Queue + flush automatico
  ********************/
 function queueRows_(sheetName, rowIndexes) {
-  const props = PropertiesService.getScriptProperties();
-  const qKey = "queue_" + sheetName;
-  const current = String(props.getProperty(qKey) || "").trim();
-  const set = new Set(current ? current.split(",").map((x) => Number(x)) : []);
+  const lock = LockService.getScriptLock();
+  lock.waitLock(20000);
 
-  rowIndexes.forEach((r) => {
-    if (r > 1) set.add(r);
-  });
+  try {
+    const props = PropertiesService.getScriptProperties();
+    const qKey = "queue_" + sheetName;
+    const current = String(props.getProperty(qKey) || "").trim();
+    const set = new Set(current ? current.split(",").map((x) => Number(x)) : []);
 
-  props.setProperty(qKey, Array.from(set).sort((a, b) => a - b).join(","));
-  scheduleFlush_();
+    rowIndexes.forEach((r) => {
+      if (r > 1) set.add(r);
+    });
+
+    props.setProperty(qKey, Array.from(set).sort((a, b) => a - b).join(","));
+    scheduleFlush_();
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 function scheduleFlush_() {
